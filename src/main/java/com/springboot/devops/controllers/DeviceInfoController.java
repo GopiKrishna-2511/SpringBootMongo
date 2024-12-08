@@ -27,15 +27,6 @@ public class DeviceInfoController {
         return new ResponseEntity<>(deviceEvents, HttpStatus.OK);  // Return the list with OK status
     }
 
-    // Get device events by deviceId
-    @GetMapping("/deviceList/{deviceId}")
-    public ResponseEntity<List<DeviceInfo>> getDeviceInfoListByDeviceId(@PathVariable String deviceId) {
-        List<DeviceInfo> deviceEvents = deviceInfoService.getDeviceInfoByDeviceId(deviceId);
-        if (deviceEvents.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);  // Device events not found for the given deviceId
-        }
-        return new ResponseEntity<>(deviceEvents, HttpStatus.OK);  // Return the list with OK status
-    }
 
     // Get device events by recordType
     @GetMapping("/record/{recordType}")
