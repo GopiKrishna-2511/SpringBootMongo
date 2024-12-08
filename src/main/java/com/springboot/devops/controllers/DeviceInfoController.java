@@ -29,8 +29,8 @@ public class DeviceInfoController {
 
 
     // Get device events by recordType
-    @GetMapping("/record/{recordType}")
-    public ResponseEntity<List<DeviceInfo>> getDeviceInfoByRecordType(@PathVariable String recordType) {
+    @GetMapping("/device")
+    public ResponseEntity<List<DeviceInfo>> getDeviceInfoByRecordType(@RequestParam("recordType") String recordType) {
         List<DeviceInfo> deviceEvents = deviceInfoService.getDeviceInfoByRecordType(recordType);
         if (deviceEvents.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);  // RecordType not found
